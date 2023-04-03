@@ -13,6 +13,9 @@
 <p>继续进入merge方法<br><img src="/2023/04/03/NullPointException/20230403230926.png"><br>可以看到value为空时，直接抛空指针异常</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>知道了原因，解决方法也就可以实现了，在collect之前，先对数据进行过滤<br>.filter(t -&gt; t.getAuthor() !&#x3D; null)<br>然后再转成map，就不会报空指针</p>
 ]]></content>
+      <tags>
+        <tag>问题</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
