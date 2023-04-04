@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>SpringBean的生命周期</title>
+    <link href="/2023/04/04/Spring/"/>
+    <url>/2023/04/04/Spring/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SpringBean生命周期如下图所示"><a href="#SpringBean生命周期如下图所示" class="headerlink" title="SpringBean生命周期如下图所示"></a>SpringBean生命周期如下图所示</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>SpringBean的简单生成流程如下<br><img src="/2023/04/04/Spring/20230404210758.png"></p><h2 id="步骤说明"><a href="#步骤说明" class="headerlink" title="步骤说明"></a>步骤说明</h2><ol><li>根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition</li><li>属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入</li><li>如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBeanName方法</li><li>如果bean实现了BeanFactoryAware，调用BeanFactoryAware的setBeanFactory方法</li><li>如果bean实现了ApplicationContextAware，调用ApplicationContextAware的setApplicationContext方法</li><li>如果BeanPostProcessor和Bean关联，则Spring将调用该接口的预初始化方法postProcessBeforeInitialization方法队bean进行加工</li><li>如果bean实现了InitializingBean接口，则Spring将调用该接口的afterPropertiesSet方法</li><li>如果bean设置了init-method方法，则调用配置的init-method方法</li><li>如果BeanPostProcessor和Bean关联，调用postProcessAfterInitialization方法队bean进行加工</li><li>如果指定未专门指定bean的scope则默认为singleton,则会将此bean放入单例池中由spring管理，如果scope不是singleton，则不由spring管理，使用的时候创建bean.</li><li>如果bean实现了disposableBean接口，则spring会调用destroy方法销毁bean</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>NullPointerException</title>
     <link href="/2023/04/03/NullPointException/"/>
     <url>/2023/04/03/NullPointException/</url>

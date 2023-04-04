@@ -16,24 +16,24 @@
   <meta name="author" content="Mango">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Stream中toMap的NullPointerException问题现象今天测试在测试代码时，发现Collectors.toMap报了空指针异常，具体报错信息如下 1234567891011121314151617181920212223242526272829303132333435at java.util.HashMap.merge(HashMap.java:1225)at java.uti">
+    <meta name="description" content="SpringBean生命周期如下图所示流程图SpringBean的简单生成流程如下 步骤说明 根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition 属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入 如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NullPointerException">
-<meta property="og:url" content="http://example.com/2023/04/03/NullPointException/index.html">
+<meta property="og:title" content="SpringBean的生命周期">
+<meta property="og:url" content="http://example.com/2023/04/04/Spring/index.html">
 <meta property="og:site_name" content="Mango&amp;Sandy">
-<meta property="og:description" content="Stream中toMap的NullPointerException问题现象今天测试在测试代码时，发现Collectors.toMap报了空指针异常，具体报错信息如下 1234567891011121314151617181920212223242526272829303132333435at java.util.HashMap.merge(HashMap.java:1225)at java.uti">
+<meta property="og:description" content="SpringBean生命周期如下图所示流程图SpringBean的简单生成流程如下 步骤说明 根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition 属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入 如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBea">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/04/03/NullPointException/20230403230926.png">
-<meta property="article:published_time" content="2023-04-03T14:28:48.000Z">
-<meta property="article:modified_time" content="2023-04-03T15:47:47.240Z">
+<meta property="og:image" content="http://example.com/2023/04/04/Spring/20230404210758.png">
+<meta property="article:published_time" content="2023-04-04T12:55:14.000Z">
+<meta property="article:modified_time" content="2023-04-04T14:15:14.895Z">
 <meta property="article:author" content="Mango">
-<meta property="article:tag" content="问题">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2023/04/03/NullPointException/20230403230926.png">
+<meta name="twitter:image" content="http://example.com/2023/04/04/Spring/20230404210758.png">
   
   
   
-  <title>NullPointerException - Mango&amp;Sandy</title>
+  <title>SpringBean的生命周期 - Mango&amp;Sandy</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="NullPointerException"></span>
+            <span id="subtitle" data-typed-text="SpringBean的生命周期"></span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-03 22:28" pubdate>
-          2023年4月3日 晚上
+        <time datetime="2023-04-04 20:55" pubdate>
+          2023年4月4日 晚上
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          760 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          28 分钟
+          7 分钟
         
       </span>
     
@@ -286,20 +286,25 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">NullPointerException</h1>
+            <h1 style="display: none">SpringBean的生命周期</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Stream中toMap的NullPointerException"><a href="#Stream中toMap的NullPointerException" class="headerlink" title="Stream中toMap的NullPointerException"></a>Stream中toMap的NullPointerException</h1><h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>今天测试在测试代码时，发现Collectors.toMap报了空指针异常，具体报错信息如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java.lang.NullPointerException">at java.util.HashMap.merge(HashMap.java:1225)<br>at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1320)<br>at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)<br>at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)<br>at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)<br>at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)<br>at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)<br>at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)<br>at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)<br>at org.mango.AppTest.shouldAnswerWithTrue(AppTest.java:26)<br>at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>at java.lang.reflect.Method.invoke(Method.java:498)<br>at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)<br>at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br>at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)<br>at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br>at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)<br>at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)<br>at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)<br>at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)<br>at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)<br>at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)<br>at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)<br>at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)<br>at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)<br>at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)<br>at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)<br>at org.junit.runners.ParentRunner.run(ParentRunner.java:413)<br>at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br>at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)<br>at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)<br>at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)<br>at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)<br></code></pre></td></tr></table></figure>
-
-<p>根据提示是HashMap.merge方法报的错，经过debug，发现Stream中toMap不允许key和value为null。而正常的Map,value是可以为空的，受了经验主义的影响</p>
-<h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><p>toMap源码如下，可看到内部调用了map的merge方法</p>
-<figure class="highlight plaintext"><figcaption><span>static <T, k, u, m extends map<k, u>></T,></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs public">Collector&lt;T, ?, M&gt; toMap(Function&lt;? super T, ? extends K&gt; keyMapper,<br>                            Function&lt;? super T, ? extends U&gt; valueMapper,<br>                            BinaryOperator&lt;U&gt; mergeFunction,<br>                            Supplier&lt;M&gt; mapSupplier) &#123;<br>    BiConsumer&lt;M, T&gt; accumulator<br>            = (map, element) -&gt; map.merge(keyMapper.apply(element),<br>                                          valueMapper.apply(element), mergeFunction);<br>    return new CollectorImpl&lt;&gt;(mapSupplier, accumulator, mapMerger(mergeFunction), CH_ID);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>继续进入merge方法<br><img src="/2023/04/03/NullPointException/20230403230926.png" srcset="/img/loading.gif" lazyload><br>可以看到value为空时，直接抛空指针异常</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>知道了原因，解决方法也就可以实现了，在collect之前，先对数据进行过滤<br>.filter(t -&gt; t.getAuthor() !&#x3D; null)<br>然后再转成map，就不会报空指针</p>
+                <h1 id="SpringBean生命周期如下图所示"><a href="#SpringBean生命周期如下图所示" class="headerlink" title="SpringBean生命周期如下图所示"></a>SpringBean生命周期如下图所示</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>SpringBean的简单生成流程如下<br><img src="/2023/04/04/Spring/20230404210758.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="步骤说明"><a href="#步骤说明" class="headerlink" title="步骤说明"></a>步骤说明</h2><ol>
+<li>根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition</li>
+<li>属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入</li>
+<li>如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBeanName方法</li>
+<li>如果bean实现了BeanFactoryAware，调用BeanFactoryAware的setBeanFactory方法</li>
+<li>如果bean实现了ApplicationContextAware，调用ApplicationContextAware的setApplicationContext方法</li>
+<li>如果BeanPostProcessor和Bean关联，则Spring将调用该接口的预初始化方法postProcessBeforeInitialization方法队bean进行加工</li>
+<li>如果bean实现了InitializingBean接口，则Spring将调用该接口的afterPropertiesSet方法</li>
+<li>如果bean设置了init-method方法，则调用配置的init-method方法</li>
+<li>如果BeanPostProcessor和Bean关联，调用postProcessAfterInitialization方法队bean进行加工</li>
+<li>如果指定未专门指定bean的scope则默认为singleton,则会将此bean放入单例池中由spring管理，如果scope不是singleton，则不由spring管理，使用的时候创建bean.</li>
+<li>如果bean实现了disposableBean接口，则spring会调用destroy方法销毁bean</li>
+</ol>
 
                 
               </div>
@@ -312,7 +317,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%97%AE%E9%A2%98/">#问题</a>
+        <a href="/tags/Spring/">#Spring</a>
       
     </div>
   
@@ -324,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>NullPointerException</div>
-      <div>http://example.com/2023/04/03/NullPointException/</div>
+      <div>SpringBean的生命周期</div>
+      <div>http://example.com/2023/04/04/Spring/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月3日</div>
+          <div>2023年4月4日</div>
         </div>
       
       
@@ -369,18 +374,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/04/Spring/" title="SpringBean的生命周期">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpringBean的生命周期</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/25/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/04/03/NullPointException/" title="NullPointerException">
+                        <span class="hidden-mobile">NullPointerException</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
