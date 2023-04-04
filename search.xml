@@ -13,6 +13,9 @@
 <p>继续进入merge方法<br><img src="/2023/04/03/NullPointException/20230403230926.png"><br>可以看到value为空时，直接抛空指针异常</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>知道了原因，解决方法也就可以实现了，在collect之前，先对数据进行过滤<br>.filter(t -&gt; t.getAuthor() !&#x3D; null)<br>然后再转成map，就不会报空指针</p>
 ]]></content>
+      <categories>
+        <category>问题排查</category>
+      </categories>
       <tags>
         <tag>问题</tag>
       </tags>
@@ -35,6 +38,9 @@
 <li>如果bean实现了disposableBean接口，则spring会调用destroy方法销毁bean</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
       <tags>
         <tag>Spring</tag>
       </tags>
@@ -48,6 +54,43 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电路分析---基础知识</title>
+    <url>/2023/04/04/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="电路分析基础知识"><a href="#电路分析基础知识" class="headerlink" title="电路分析基础知识"></a>电路分析基础知识</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>电流</strong><br>通常将正电荷在电路中移动的方向规定为电流的方向，大量的电荷朝一个方向移动时就形成了电流。电流用<em>I</em>表示电流基本单位为安培(简称安),用符号A表示电流的单位，比安更小的单位有毫安(mA)，微安(uA)，它们之间的关系为<br>                        <center> <code>1A = 10^3 mA = 10^6 uA</code></center></p>
+<p><strong>电阻</strong><br>电阻器队对电流的阻碍作用称为电阻，通常用”<strong>R</strong>“表示，电阻单位为欧姆(简称欧),符号为<strong>Ω</strong>,比欧更大的单位有千欧，兆欧，换算关系如下：<br>                        <center><code>1MΩ = 10^3 KΩ = 10^6 Ω</code></center></p>
+<p><strong>电位</strong><br>电位的单位是伏特(简称伏)，用<strong>V</strong>表示。与山顶往湖里流的水流类似，选取湖面为基准点，假设电位为0,山顶的电位为3V,半山腰电位为1V.</p>
+<p><strong>电压</strong><br>电压是表示电位之间的差距,用U表示，Uab表示a、b点之间的电压，即两点之间的电位差。</p>
+<p><strong>电动势</strong><br>电源内部将其他形式的能量转换成电能，并在正极和负极间建立的电位差称为电动势。</p>
+<p><strong>直流电</strong><br>直流电是指方向始终固定不变的电压或电流，能产生直流电的电源称为直流电源。直流电的电流方向总是从电源正极通过电路流向电源负极。<br>直流电又分为稳定直流电和脉动直流电</p>
+<ul>
+<li>稳定直流电: 方向固定不变并且大小也不变的直流电</li>
+<li>脉动直流电：方向固定不变但大小随时间变化的直流电</li>
+</ul>
+<p><strong>交流电</strong><br>交流电是指方向和大小都随时间周期性变化的电压或电流</p>
+<iframe src="//player.bilibili.com/player.html?aid=294922397&bvid=BV1kF411q7GC&cid=462274422&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>电路分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我爱的音乐</title>
+    <url>/2023/04/04/%E9%9F%B3%E4%B9%90/</url>
+    <content><![CDATA[<h1 id="pianoboy-高志豪"><a href="#pianoboy-高志豪" class="headerlink" title="pianoboy 高志豪"></a>pianoboy 高志豪</h1><h2 id="The-truth-that-you-leave"><a href="#The-truth-that-you-leave" class="headerlink" title="The truth that you leave"></a>The truth that you leave</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="80%" height="186" src="//music.163.com/outchain/player?type=2&id=139774&auto=1&height=66"></iframe>
+
+<hr>
+<h2 id="ALONE-ON-THE-WAY"><a href="#ALONE-ON-THE-WAY" class="headerlink" title="ALONE ON THE WAY"></a>ALONE ON THE WAY</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="80%" height="86" src="//music.163.com/outchain/player?type=2&id=139718&auto=1&height=66"></iframe>]]></content>
+      <tags>
+        <tag>音乐</tag>
       </tags>
   </entry>
 </search>

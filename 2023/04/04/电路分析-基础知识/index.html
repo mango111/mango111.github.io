@@ -16,24 +16,22 @@
   <meta name="author" content="Mango">
   <meta name="keywords" content="">
   
-    <meta name="description" content="SpringBean生命周期如下图所示流程图SpringBean的简单生成流程如下 步骤说明 根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition 属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入 如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBea">
+    <meta name="description" content="电路分析基础知识基本概念电流通常将正电荷在电路中移动的方向规定为电流的方向，大量的电荷朝一个方向移动时就形成了电流。电流用I表示电流基本单位为安培(简称安),用符号A表示电流的单位，比安更小的单位有毫安(mA)，微安(uA)，它们之间的关系为                         1A &#x3D; 10^3 mA &#x3D; 10^6 uA 电阻电阻器队对电流的阻碍作用称为电阻，通常用”R“表示，电阻单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBean的生命周期">
-<meta property="og:url" content="http://example.com/2023/04/04/Spring/index.html">
+<meta property="og:title" content="电路分析---基础知识">
+<meta property="og:url" content="http://example.com/2023/04/04/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Mango&amp;Sandy">
-<meta property="og:description" content="SpringBean生命周期如下图所示流程图SpringBean的简单生成流程如下 步骤说明 根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition 属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入 如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBea">
+<meta property="og:description" content="电路分析基础知识基本概念电流通常将正电荷在电路中移动的方向规定为电流的方向，大量的电荷朝一个方向移动时就形成了电流。电流用I表示电流基本单位为安培(简称安),用符号A表示电流的单位，比安更小的单位有毫安(mA)，微安(uA)，它们之间的关系为                         1A &#x3D; 10^3 mA &#x3D; 10^6 uA 电阻电阻器队对电流的阻碍作用称为电阻，通常用”R“表示，电阻单">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/04/04/Spring/20230404210758.png">
-<meta property="article:published_time" content="2023-04-04T12:55:14.000Z">
-<meta property="article:modified_time" content="2023-04-04T14:33:21.483Z">
+<meta property="article:published_time" content="2023-04-04T14:32:51.000Z">
+<meta property="article:modified_time" content="2023-04-04T15:14:07.715Z">
 <meta property="article:author" content="Mango">
-<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="电路分析">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2023/04/04/Spring/20230404210758.png">
   
   
   
-  <title>SpringBean的生命周期 - Mango&amp;Sandy</title>
+  <title>电路分析---基础知识 - Mango&amp;Sandy</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SpringBean的生命周期"></span>
+            <span id="subtitle" data-typed-text="电路分析---基础知识"></span>
           
         </div>
 
@@ -225,7 +223,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-04 20:55" pubdate>
+        <time datetime="2023-04-04 22:32" pubdate>
           2023年4月4日 晚上
         </time>
       </span>
@@ -237,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          760 字
+          531 字
         
       </span>
     
@@ -248,7 +246,7 @@
         
         
         
-          7 分钟
+          5 分钟
         
       </span>
     
@@ -286,25 +284,29 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringBean的生命周期</h1>
+            <h1 style="display: none">电路分析---基础知识</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="SpringBean生命周期如下图所示"><a href="#SpringBean生命周期如下图所示" class="headerlink" title="SpringBean生命周期如下图所示"></a>SpringBean生命周期如下图所示</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>SpringBean的简单生成流程如下<br><img src="/2023/04/04/Spring/20230404210758.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="步骤说明"><a href="#步骤说明" class="headerlink" title="步骤说明"></a>步骤说明</h2><ol>
-<li>根据资源的配置情况(xml,注解,java配置)，调用bean构造方法或者工厂方法实例化bean，主要是将配置转换成beanDefinition</li>
-<li>属性填充，设置属性值。利用依赖注入完成bean属性值得配置注入</li>
-<li>如果bean实现了BeanNameAware,则调用BeanNameAware接口的setBeanName方法</li>
-<li>如果bean实现了BeanFactoryAware，调用BeanFactoryAware的setBeanFactory方法</li>
-<li>如果bean实现了ApplicationContextAware，调用ApplicationContextAware的setApplicationContext方法</li>
-<li>如果BeanPostProcessor和Bean关联，则Spring将调用该接口的预初始化方法postProcessBeforeInitialization方法队bean进行加工</li>
-<li>如果bean实现了InitializingBean接口，则Spring将调用该接口的afterPropertiesSet方法</li>
-<li>如果bean设置了init-method方法，则调用配置的init-method方法</li>
-<li>如果BeanPostProcessor和Bean关联，调用postProcessAfterInitialization方法队bean进行加工</li>
-<li>如果指定未专门指定bean的scope则默认为singleton,则会将此bean放入单例池中由spring管理，如果scope不是singleton，则不由spring管理，使用的时候创建bean.</li>
-<li>如果bean实现了disposableBean接口，则spring会调用destroy方法销毁bean</li>
-</ol>
+                <h1 id="电路分析基础知识"><a href="#电路分析基础知识" class="headerlink" title="电路分析基础知识"></a>电路分析基础知识</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>电流</strong><br>通常将正电荷在电路中移动的方向规定为电流的方向，大量的电荷朝一个方向移动时就形成了电流。电流用<em>I</em>表示电流基本单位为安培(简称安),用符号A表示电流的单位，比安更小的单位有毫安(mA)，微安(uA)，它们之间的关系为<br>                        <center> <code>1A = 10^3 mA = 10^6 uA</code></center></p>
+<p><strong>电阻</strong><br>电阻器队对电流的阻碍作用称为电阻，通常用”<strong>R</strong>“表示，电阻单位为欧姆(简称欧),符号为<strong>Ω</strong>,比欧更大的单位有千欧，兆欧，换算关系如下：<br>                        <center><code>1MΩ = 10^3 KΩ = 10^6 Ω</code></center></p>
+<p><strong>电位</strong><br>电位的单位是伏特(简称伏)，用<strong>V</strong>表示。与山顶往湖里流的水流类似，选取湖面为基准点，假设电位为0,山顶的电位为3V,半山腰电位为1V.</p>
+<p><strong>电压</strong><br>电压是表示电位之间的差距,用U表示，Uab表示a、b点之间的电压，即两点之间的电位差。</p>
+<p><strong>电动势</strong><br>电源内部将其他形式的能量转换成电能，并在正极和负极间建立的电位差称为电动势。</p>
+<p><strong>直流电</strong><br>直流电是指方向始终固定不变的电压或电流，能产生直流电的电源称为直流电源。直流电的电流方向总是从电源正极通过电路流向电源负极。<br>直流电又分为稳定直流电和脉动直流电</p>
+<ul>
+<li>稳定直流电: 方向固定不变并且大小也不变的直流电</li>
+<li>脉动直流电：方向固定不变但大小随时间变化的直流电</li>
+</ul>
+<p><strong>交流电</strong><br>交流电是指方向和大小都随时间周期性变化的电压或电流</p>
+<iframe src="//player.bilibili.com/player.html?aid=294922397&bvid=BV1kF411q7GC&cid=462274422&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
 
                 
               </div>
@@ -313,32 +315,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Spring/" class="category-chain-item">Spring</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Spring/">#Spring</a>
+        <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90/">#电路分析</a>
       
     </div>
   
@@ -350,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SpringBean的生命周期</div>
-      <div>http://example.com/2023/04/04/Spring/</div>
+      <div>电路分析---基础知识</div>
+      <div>http://example.com/2023/04/04/电路分析-基础知识/</div>
     </div>
     <div class="license-meta">
       
@@ -395,9 +376,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/04/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="电路分析---基础知识">
+                      <a href="/2023/04/04/%E9%9F%B3%E4%B9%90/" title="我爱的音乐">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">电路分析---基础知识</span>
+                        <span class="hidden-mobile">我爱的音乐</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -405,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/03/NullPointException/" title="NullPointerException">
-                        <span class="hidden-mobile">NullPointerException</span>
+                      <a href="/2023/04/04/Spring/" title="SpringBean的生命周期">
+                        <span class="hidden-mobile">SpringBean的生命周期</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
